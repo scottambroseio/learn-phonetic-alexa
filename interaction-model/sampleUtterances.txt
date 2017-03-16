@@ -1,1 +1,2 @@
 PhoneticForLetterIntent What is the phonetic for {Letter}
+PhoneticForLetterIntent What's the phonetic for the letter {Letter}

@@ -1,5 +1,11 @@
-var Alexa = require('alexa-sdk');
+//@flow
+import Alexa from 'alexa-sdk';
 
-exports.handler = function(event, context, callback){
+
+const handler = (event: any, context: any, callback: Function):void =>{
     var alexa = Alexa.handler(event, context);
 };
+
+export {
+    handler
+}
