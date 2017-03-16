@@ -1,0 +1,13 @@
+{
+	"intents": [
+		{
+			"intent": "PhoneticForLetterIntent",
+			"slots": [
+				{
+					"name": "Letter",
+					"type": "LETTER"
+				}
+			]
+		}
+	]
+}
