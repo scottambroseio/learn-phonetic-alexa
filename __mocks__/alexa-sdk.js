@@ -1,5 +1,12 @@
+//@flow
+
+
 const sdk = {
-  handler: jest.fn()
+  handler: jest.fn(() => {
+    return {
+      appId: undefined,
+    }
+  }),
 };
 
 export default sdk;

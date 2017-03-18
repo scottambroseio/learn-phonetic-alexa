@@ -1,21 +1,31 @@
 //@flow
+
 import Alexa from 'alexa-sdk'
 import { handler } from '../index.js';
 
 jest.unmock('../index.js')
 
 describe("index", () => {
+  const event = {
+    event: "event"
+  };
+
+  const context = {
+    context: "context"
+  };
+
+  const callback = () => {};
+  
   it("handler should invoke the Alexa.handler method with the correct parameters", () =>{
-      const event = {
-          event: "event"
-      };
 
-      const context = {
-          context: "context"
-      };
-
-      handler(event, context, () => {});
+      handler(event, context, callback)
 
       expect(Alexa.handler).toHaveBeenCalledWith(event, context)
+  });
+
+  it("should set the appId property", () => {
+      const alexa = handler(event, context, callback);
+
+      expect(alexa.appId).toBe(process.env.ALEXA_APP_ID);
   });
 });

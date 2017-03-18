@@ -1,5 +1,6 @@
 {
   "name": "learn-phonetic",
+  "private": true,
   "version": "1.0.0",
   "description": "Alexa skill to aid in learning the phonetic alphabet",
   "main": "src/index.js",
@@ -7,7 +8,8 @@
   "author": "Scott Ranger",
   "license": "MIT",
   "dependencies": {
-    "alexa-sdk": "^1.0.7"
+    "alexa-sdk": "^1.0.7",
+    "dotenv": "^4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
