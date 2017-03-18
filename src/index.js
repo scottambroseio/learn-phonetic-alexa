@@ -11,6 +11,7 @@ const handler = (event: any, context: any, callback: Function): any =>{
 
   alexa.appId = process.env.ALEXA_APP_ID;
   alexa.registerHandlers(handlers);
+  alexa.execute();
 
   return alexa;
 };

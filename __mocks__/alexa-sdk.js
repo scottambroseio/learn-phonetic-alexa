@@ -2,7 +2,9 @@
 
 const handlerReturn = {
   appId: undefined,
-  registerHandlers: jest.fn()
+  registerHandlers: jest.fn(),
+  execute: jest.fn(),
+  emit: jest.fn(),
 };
 
 const sdk = {

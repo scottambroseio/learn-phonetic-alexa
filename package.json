@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Alexa skill to aid in learning the phonetic alphabet",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/scottrangerio/LearnPhonetic.git",
   "author": "Scott Ranger",
   "license": "MIT",
