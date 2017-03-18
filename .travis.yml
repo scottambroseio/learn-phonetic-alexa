@@ -1,3 +1,13 @@
 language: node_js
 node_js: 4.3
 after_success: npm run build
+deploy:
+  provider: lambda
+  function_name: learnPhonetic
+  region: eu-west-1
+  role: arn:aws:iam::210402362540:role/learn_phonetic_basic_execution
+  runtime: nodejs4.3
+  handler_name: dist/index.handler
+  access_key_id: AKIAJKTK3TYHRMRRAPKQ
+  secret_access_key:
+    secure: T0zaQ1mYOVldSlsDahSmkLnhjIMcPEwKKdQB1TjLlxW8+3ot3mn86/a3jOSYXsZVQg0ibUJJTtkb8AAc5cKcr1u/+43uqYW9npCvsSofac7O1MTNezMms4E8Y+rSkVDSqBj1SsYimlkJwJJNDzvAucV92Q8kGoScEn8bfCyakmm62lodwb80Vk7Ff0iS3EEl9W2wqDfeGy1P90mDMElq7eL7zLfWt/rhyqlJhVxpp+kzhIsT2Frv+zGM25g4BhnBVCMJpHlg9YaIt6speHToSc1EK15W4VaxAAvkeeyQK6NL+bd0cjxDvTttq9qlhxVROqbDkxhPNm6SZyocXPu0eTnz6Kuoii3pnJnswb0fJ8via6LMSCPnvqfN2re/+jl6SFPO7icHeeeIi2WBIV+QzQFt9Wc+bB+IFLj4jvIjDkndpQq7UItCz29FUbuYGkPTGnEfJWPg3VEVDHyAiNESbYB6NG6kmR1XOzINGk4//ZgyJyLlDe8h0pqSeQmd1wLbBKbiSU3RvGlMtB/Kzs4GoHoL+png21DRo6nPUuH6xdY+GM2M8cq2uMImFwiAUJrFbQ+fo/X64PARQJSXD6M3EXbaoW3wW+p5s3mxPQtjKA/1XxCs20MwDqCQWa7uEHPJSZPGiyeG1AWlleTc1LkKAt+/ZFcVUDcYaiat8soRdDQ=
