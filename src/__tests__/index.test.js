@@ -2,6 +2,7 @@
 
 import Alexa from 'alexa-sdk'
 import { handler } from '../index.js';
+import handlers from '../handlers.js';
 
 jest.unmock('../index.js')
 
@@ -15,9 +16,8 @@ describe("index", () => {
   };
 
   const callback = () => {};
-  
-  it("handler should invoke the Alexa.handler method with the correct parameters", () =>{
 
+  it("handler should invoke the Alexa.handler method with the correct parameters", () => {
       handler(event, context, callback)
 
       expect(Alexa.handler).toHaveBeenCalledWith(event, context)
@@ -27,5 +27,11 @@ describe("index", () => {
       const alexa = handler(event, context, callback);
 
       expect(alexa.appId).toBe(process.env.ALEXA_APP_ID);
+  });
+
+  it('should register intent handlers', () => {
+      const alexa = handler(event, context, callback);
+
+      expect(Alexa.handler().registerHandlers).toHaveBeenCalledWith(handlers);
   });
 });

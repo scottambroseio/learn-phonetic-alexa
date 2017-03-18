@@ -12,10 +12,14 @@
  * community by sending a pull request to:
  * https://github.com/flowtype/flow-typed
  */
+ type alexaHandler = {
+     appId: ?string,
+     registerHandlers: (handers: { [key: string]: Function }) => alexaHandler
+ }
 
 declare module 'alexa-sdk' {
   declare module.exports: {
-      handler: (event: any, context: any) => any
+      handler: (event: any, context: any) => alexaHandler
   };
 }
 
