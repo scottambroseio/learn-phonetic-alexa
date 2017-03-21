@@ -9,6 +9,9 @@ const handlers = {
     'AMAZON.HelpIntent': function() {
         this.emit(':tell', helpString);
     },
+    'PhoneticForLetterIntent': function() {
+        console.log(this.event.request.intent.slots.Letter.value);
+    },
 };
 
 export default handlers;

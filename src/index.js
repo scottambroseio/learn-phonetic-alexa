@@ -6,7 +6,7 @@ import handlers from './handlers.js';
 
 load();
 
-const handler = (event: any, context: any, callback: Function): any =>{
+const handler = (event: any, context: any, callback: Function): any => {
   const alexa = Alexa.handler(event, context);
 
   alexa.appId = process.env.ALEXA_APP_ID;
