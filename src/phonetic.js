@@ -9,7 +9,7 @@ const map = {
   'f': 'foxtrot',
   'g': 'golf',
   'h': 'hotel',
-  'i': 'india,
+  'i': 'india',
   'j': 'juliett',
   'k': 'kilo',
   'l': 'lima',

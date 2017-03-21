@@ -1,6 +1,7 @@
 //@flow
 
 import { welcomeString, helpString } from './strings.js';
+import phonetic from './phonetic.js';
 
 const handlers = {
     'LaunchRequest': function() {
@@ -9,9 +10,14 @@ const handlers = {
     'AMAZON.HelpIntent': function() {
         this.emit(':tell', helpString);
     },
+    'Unhandled': function() {
+        //error message
+    },
     'PhoneticForLetterIntent': function() {
-        console.log(this.event.request.intent.slots.Letter.value);
-        this.emit(':tell', `you asked for the phonetic of the letter ${this.event.request.intent.slots.Letter.value}`);
+        const letter = this.event.request.intent.slots.Letter.value;
+        const answer = phonetic[letter];        
+
+        this.emit(':tell', `The phonetic for the letter ${letter} is ${answer}`);
     },
 };
 
