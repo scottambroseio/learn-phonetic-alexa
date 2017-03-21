@@ -11,6 +11,7 @@ const handlers = {
     },
     'PhoneticForLetterIntent': function() {
         console.log(this.event.request.intent.slots.Letter.value);
+        this.emit(':tell', `you asked for the phonetic of the letter ${this.event.request.intent.slots.Letter.value}`);
     },
 };
 
