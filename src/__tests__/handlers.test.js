@@ -2,10 +2,8 @@
 
 import Alexa from 'alexa-sdk';
 import handlers from '../handlers.js';
-import { welcomeString, helpString } from '../strings.js';
 
 jest.unmock('../handlers.js');
-jest.unmock('../strings.js');
 
 describe('intents', () => {
     describe('launch intent handler', () => {
@@ -16,9 +14,10 @@ describe('intents', () => {
 
             handlers.LaunchRequest.call(alexa);
 
-            expect(alexa.emit).toHaveBeenCalledWith(':tell', welcomeString);
+            expect(alexa.emit).toHaveBeenCalledWith(':tell', alexa.t("WELCOME"));
         });
     });
+
     describe('help intent handler', () => {
         it('should invoke the emit method with the correct parameters', () => {
             const alexa = Alexa.handler();
@@ -27,7 +26,13 @@ describe('intents', () => {
 
             handlers['AMAZON.HelpIntent'].call(alexa);
 
-            expect(alexa.emit).toHaveBeenCalledWith(':tell', helpString);
+            expect(alexa.emit).toHaveBeenCalledWith(':tell', alexa.t("HELP"));
+        });
+    });
+
+    describe('phonetic for letter intent handler', () => {
+        it('should do something', () => {
+
         });
     });
 });

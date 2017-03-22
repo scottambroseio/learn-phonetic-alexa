@@ -16,7 +16,9 @@
      appId: ?string,
      registerHandlers: (handers: { [key: string]: Function }) => alexaHandler,
      execute: () => void,
-     emit: () => {}
+     emit: () => {},
+     resources: { [key: string]: any },
+     t: (key: string) => string
  }
 
 declare module 'alexa-sdk' {

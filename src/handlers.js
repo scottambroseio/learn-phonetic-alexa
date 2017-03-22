@@ -1,23 +1,28 @@
 //@flow
 
-import { welcomeString, helpString } from './strings.js';
 import phonetic from './phonetic.js';
 
 const handlers = {
     'LaunchRequest': function() {
-        this.emit(':tell', welcomeString);
+        this.emit(':tell', this.t("WELCOME"));
     },
     'AMAZON.HelpIntent': function() {
-        this.emit(':tell', helpString);
+        this.emit(':tell', this.t("HELP"));
     },
     'Unhandled': function() {
-        //error message
+        this.emit(':tell', this.t("UNHANDLED_INTENT"));
     },
     'PhoneticForLetterIntent': function() {
         const letter = this.event.request.intent.slots.Letter.value;
-        const answer = phonetic[letter];        
+        const answer = phonetic[letter];
 
-        this.emit(':tell', `The phonetic for the letter ${letter} is ${answer}`);
+        // check for invalid slot values
+        if(!Object.keys(phonetic).includes(letter)) {
+            this.emit(':tell', this.t('INVALID_LETTER_SLOT'))
+            return;
+        }
+
+        this.emit(':tell', this.t('PHONETIC_FOR_LETTER_RESPONSE', { letter, answer }));
     },
 };
 

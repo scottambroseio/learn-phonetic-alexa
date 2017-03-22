@@ -5,6 +5,7 @@ const handlerReturn = {
   registerHandlers: jest.fn(),
   execute: jest.fn(),
   emit: jest.fn(),
+  t: jest.fn((key) => key),
 };
 
 const sdk = {
