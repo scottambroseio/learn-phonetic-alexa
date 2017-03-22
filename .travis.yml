@@ -6,6 +6,7 @@ deploy:
   function_name: learnPhonetic
   region: eu-west-1
   runtime: nodejs4.3
+  module_name: dist/index
   handler_name: handler
   access_key_id: AKIAI2JBLMVAN52WTWLA
   secret_access_key:
