@@ -1,6 +1,7 @@
 //@flow
 
 import phonetic from './phonetic.js';
+import includes from 'lodash.includes';
 
 const handlers = {
     'LaunchRequest': function() {
@@ -17,7 +18,7 @@ const handlers = {
         const answer = phonetic[letter];
 
         // check for invalid slot values
-        if(!Object.keys(phonetic).includes(letter)) {
+        if(!includes(Object.keys(phonetic), letter)) {
             this.emit(':tell', this.t('INVALID_LETTER_SLOT'))
             return;
         }

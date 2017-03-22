@@ -1,13 +1,16 @@
 {
-	"intents": [
-		{
-			"intent": "PhoneticForLetterIntent",
-			"slots": [
-				{
-					"name": "Letter",
-					"type": "LETTER"
-				}
-			]
-		}
-	]
+    "intents": [
+        {
+            "intent": "PhoneticForLetterIntent",
+            "slots": [
+                {
+                    "name": "Letter",
+                    "type": "LETTER"
+                }
+            ]
+        },
+        {
+            "intent": "AMAZON.HelpIntent"
+        }
+    ]
 }
