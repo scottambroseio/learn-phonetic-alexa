@@ -12,7 +12,7 @@ describe('intents', () => {
 
             alexa.emit.mockClear();
 
-            handlers.LaunchRequest.call(alexa);
+            handlers['LaunchRequest'].call(alexa);
 
             expect(alexa.emit).toHaveBeenCalledWith(':tell', alexa.t("WELCOME"));
         });
@@ -31,8 +31,62 @@ describe('intents', () => {
     });
 
     describe('phonetic for letter intent handler', () => {
-        it('should do something', () => {
+        it('should error if a invalid slot is provided', () => {
+            const alexa = Alexa.handler();
 
+            alexa.emit.mockClear();
+            alexa.event = {
+                request: {
+                    intent: {
+                        slots: {
+                            Letter: {
+                                value: ']'
+                            }
+                        }
+                    }
+                }
+            };
+
+            handlers['PhoneticForLetterIntent'].call(alexa);
+
+            expect(alexa.emit).toHaveBeenCalledWith('ERROR');
+        });
+    });
+
+    describe('phonetic for letter intent handler', () => {
+        it('shouldreturn the correct response', () => {
+            const letter = 'a';
+            const answer = 'alfa';
+            const alexa = Alexa.handler();
+
+            alexa.emit.mockClear();
+            alexa.event = {
+                request: {
+                    intent: {
+                        slots: {
+                            Letter: {
+                                value: letter
+                            }
+                        }
+                    }
+                }
+            };
+
+            handlers['PhoneticForLetterIntent'].call(alexa);
+
+            expect(alexa.emit).toHaveBeenCalledWith(':tell', alexa.t('PHONETIC_FOR_LETTER_RESPONSE', { letter, answer }));
+        });
+    });
+
+    describe('error handler', () => {
+        it('should emit an error message', () => {
+            const alexa = Alexa.handler();
+
+            alexa.emit.mockClear();
+
+            handlers['ERROR'].call(alexa);
+
+            expect(alexa.emit).toHaveBeenCalledWith(':tell', alexa.t('ERROR'));
         });
     });
 });

@@ -18,7 +18,8 @@
      execute: () => void,
      emit: () => {},
      resources: { [key: string]: any },
-     t: (key: string) => string
+     t: (key: string) => string,
+     event: any
  }
 
 declare module 'alexa-sdk' {
