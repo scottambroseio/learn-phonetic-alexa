@@ -10,20 +10,20 @@ const handlers = {
     'AMAZON.HelpIntent': function() {
         this.emit(':tell', this.t("HELP"));
     },
-    'Unhandled': function() {
-        this.emit(':tell', this.t("UNHANDLED_INTENT"));
-    },
     'PhoneticForLetterIntent': function() {
         const letter = this.event.request.intent.slots.Letter.value;
         const answer = phonetic[letter];
 
         // check for invalid slot values
         if(!includes(Object.keys(phonetic), letter)) {
-            this.emit(':tell', this.t('INVALID_LETTER_SLOT'))
+            this.emit('ERROR');
             return;
         }
 
         this.emit(':tell', this.t('PHONETIC_FOR_LETTER_RESPONSE', { letter, answer }));
+    },
+    'ERROR': function() {
+        this.emit(':tell', this.t('ERROR'))
     },
 };
 
