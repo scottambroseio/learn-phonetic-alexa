@@ -1,3 +1,3 @@
 # Learn Phonetic (Alexa)
 
-Alexa Skill to help users learn and practise the Phonetic Alphabet.
+Alexa skill to help users learn and practise the phonetic alphabet.
