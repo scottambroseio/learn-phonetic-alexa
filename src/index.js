@@ -2,7 +2,7 @@
 
 import Alexa from 'alexa-sdk';
 import { load } from 'dotenv';
-import handlers from './handlers.js';
+import handlers from './actions';
 import languageStrings from './languageStrings.js';
 
 load();
