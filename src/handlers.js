@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 import phonetic from './phonetic.js';
 import includes from 'lodash.includes';

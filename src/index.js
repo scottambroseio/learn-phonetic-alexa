@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 import Alexa from 'alexa-sdk';
 import { load } from 'dotenv';
@@ -7,7 +7,7 @@ import languageStrings from './languageStrings.js';
 
 load();
 
-const handler = (event: any, context: any, callback: Function): any => {
+const handler = (event: any, context: any): any => {
   const alexa = Alexa.handler(event, context);
 
   alexa.appId = process.env.ALEXA_APP_ID;
@@ -18,6 +18,4 @@ const handler = (event: any, context: any, callback: Function): any => {
   return alexa;
 };
 
-export {
-    handler
-}
+export { handler };

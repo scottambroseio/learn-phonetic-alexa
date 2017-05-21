@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 const languageStrings = {
     "en-GB": {

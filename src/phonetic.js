@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 const map = {
   'a': 'alfa',
